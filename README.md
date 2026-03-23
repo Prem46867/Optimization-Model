@@ -28,8 +28,11 @@ To enhance understanding, the script also uses Matplotlib to visualize the optim
 
 From a business perspective, this analysis highlights the importance of optimization techniques in decision-making. Instead of relying on guesswork, the company can use mathematical models to determine the most profitable strategy. It also demonstrates how constraints influence production decisions and how balancing limited resources can lead to maximum efficiency.
 
-output of the task:
-
-
 
 In conclusion, this example effectively shows how Linear Programming can be applied to real-world business problems. By leveraging tools like PuLP, organizations can make data-driven decisions, optimize operations, and improve profitability in a systematic and reliable way.
+
+Output of the task
+
+<img width="911" height="687" alt="Image" src="https://github.com/user-attachments/assets/3bc65293-3bf3-4367-b815-fa1277734153" />
+
+<img width="1055" height="697" alt="Image" src="https://github.com/user-attachments/assets/03dd944c-e898-45be-b6f2-6ea310acd6c9" />
