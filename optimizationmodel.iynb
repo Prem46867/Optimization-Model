@@ -1,0 +1,94 @@
+## Business Problem
+
+A manufacturing company produces two products: Product A and Product B.
+
+Each product requires machine hours and labor hours for production.
+The company has limited resources and wants to determine the optimal
+production quantities to maximize profit.
+
+## Business Data
+
+Profit per unit:
+
+Product A = ₹40  
+Product B = ₹30  
+
+Resource availability:
+
+Machine hours available = 100  
+Labor hours available = 80  
+
+Resource requirement per product:
+
+Product A:
+Machine hours = 2
+Labor hours = 1
+
+Product B:
+Machine hours = 1
+Labor hours = 1
+
+## Mathematical Formulation
+
+Let:
+
+x = units of Product A  
+y = units of Product B  
+
+Objective Function:
+
+Maximize
+
+Z = 40x + 30y
+
+Constraints:
+
+2x + y ≤ 100  (Machine hours)
+
+x + y ≤ 80    (Labor hours)
+
+x ≥ 0 , y ≥ 0
+
+import pulp
+import matplotlib.pyplot as plt
+model = pulp.LpProblem("Product_Mix_Optimization", pulp.LpMaximize)
+x = pulp.LpVariable('Product_A', lowBound=0)
+y = pulp.LpVariable('Product_B', lowBound=0)
+model += 40*x + 30*y
+model += 2*x + y <= 100
+model += x + y <= 80
+model.solve()
+print("Status:", pulp.LpStatus[model.status])
+print("Product A:", pulp.value(x))
+print("Product B:", pulp.value(y))
+print("Maximum Profit:", pulp.value(model.objective))
+products = ["Product A","Product B"]
+values = [pulp.value(x), pulp.value(y)]
+
+plt.bar(products, values)
+plt.title("Optimal Production Plan")
+plt.ylabel("Units Produced")
+plt.show()
+
+## Insights
+
+1. The optimal production strategy is:
+   - Product A = 20 units
+   - Product B = 60 units
+
+2. The company achieves a maximum profit of ₹2600.
+
+3. Both machine hours and labor hours are fully utilized,
+   meaning the resources are efficiently allocated.
+
+4. Optimization techniques help businesses make
+   better production planning decisions.
+
+## Conclusion
+
+This notebook demonstrates how Linear Programming
+can help businesses optimize resource allocation
+and maximize profit.
+
+PuLP provides an easy way to implement optimization
+models using Python.
